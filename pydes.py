@@ -230,14 +230,17 @@ class des():
     
 if __name__ == '__main__':
     import sys
-    if len(sys.argv) != 3:
+    if len(sys.argv) < 3:
         print("Erorr! Please call script using pydes [KEY] [DATA] ")
     else:
         args= sys.argv
         key = args[1]
-        text= args[2]
+        text= ' '.join(args[2:])
         d = des()
-        r = d.encrypt(key,text)
+        r = d.encrypt(key,text, padding=True)
         r2 = d.decrypt(key,r)
+        print('-'*200)
         print("Ciphered: %r" % r)
+        print('-'*200)
         print("Deciphered: ", r2)
+        
