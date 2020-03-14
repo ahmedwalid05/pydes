@@ -18,28 +18,16 @@ Be careful: This module implement DES in ECB mode, so you can't make it weaker. 
 
 How to use it ?
 ---------------
+    pydes [KEY] [Data]
+Example:
+    pydes secret_k Hello wo
 
-I have not done any interface to take argument in command line so this module can't be used as a script. (feel free to modify it).
-To use it from python shell or in another module do:
-
-    from pydes import des
-
-    key = "secret_k"
-    text= "Hello wo"
-    d = des()
-    ciphered = d.encrypt(key,text)
-    plain = d.decrypt(key,ciphered)
-    print "Ciphered: %r" % ciphered
-    print "Deciphered: ", plain
 
 Note: In this exemple no padding is specified so you have to provide a text which is multiple of 8 bytes. The key is cut to 8 bytes if longer.
 
 To use padding:
 
     from pydes import des
-
-    key = "secret_k"
-    text= "Hello world !"
     d = des()
     ciphered = d.encrypt(key,text,padding=True) #Or just True in third arg
     plain = d.decrypt(key,ciphered,padding=True)
