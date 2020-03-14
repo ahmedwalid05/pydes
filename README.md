@@ -20,17 +20,16 @@ How to use it ?
 ---------------
     pydes [KEY] [Data]
 Example:
-
     pydes secret_k Hello wo
 
 
-Note: In this exemple no padding is specified so you have to provide a text which is multiple of 8 bytes. The key is cut to 8 bytes if longer.
+Note: In this exemple  padding is specified. You can remove padding 
 
 To use padding:
 
     from pydes import des
     d = des()
-    ciphered = d.encrypt(key,text,padding=True) #Or just True in third arg
-    plain = d.decrypt(key,ciphered,padding=True)
+    ciphered = d.encrypt(key,text,padding=False) #Or just remove the argument padding 
+    plain = d.decrypt(key,ciphered,padding=False)
     print "Ciphered: %r" % ciphered
     print "Deciphered: ", plain

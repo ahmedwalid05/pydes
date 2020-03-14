@@ -238,7 +238,7 @@ if __name__ == '__main__':
         text= ' '.join(args[2:])
         d = des()
         r = d.encrypt(key,text, padding=True)
-        r2 = d.decrypt(key,r)
+        r2 = d.decrypt(key,r, padding=True)
         print('-'*200)
         print("Ciphered: %r" % r)
         print('-'*200)
