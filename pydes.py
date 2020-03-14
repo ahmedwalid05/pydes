@@ -229,10 +229,15 @@ class des():
         return self.run(key, text, DECRYPT, padding)
     
 if __name__ == '__main__':
-    key = "secret_k"
-    text= "Hello wo"
-    d = des()
-    r = d.encrypt(key,text)
-    r2 = d.decrypt(key,r)
-    print("Ciphered: %r" % r)
-    print("Deciphered: ", r2)
+    import sys
+    if len(sys.argv) != 3:
+        print("Erorr! Please call script using pydes [KEY] [DATA] ")
+    else:
+        args= sys.argv
+        key = args[1]
+        text= args[2]
+        d = des()
+        r = d.encrypt(key,text)
+        r2 = d.decrypt(key,r)
+        print("Ciphered: %r" % r)
+        print("Deciphered: ", r2)
